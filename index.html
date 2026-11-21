@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>函数图像小工具</title>
+<meta name="description" content="一次函数、二次函数、反比例函数的图像与性质在线小工具。">
+<meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101116" media="(prefers-color-scheme: dark)">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f4f5f7; --surface: #ffffff; --surface-2: #f6f7f9;
+    --border: #e4e6ea; --text: #1b1f24; --muted: #697080;
+    --brand: #4d6bfe; --brand-soft: rgba(77, 107, 254, 0.14);
+    --shadow: 0 1px 2px rgba(17,24,39,.04), 0 14px 36px -22px rgba(17,24,39,.35);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --bg: #101116; --surface: #181a20; --surface-2: #1f222a;
+      --border: #2a2e38; --text: #e9ebf1; --muted: #9aa1ae;
+      --brand: #8b9dff; --brand-soft: rgba(139,157,255,.16);
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 18px 44px -26px rgba(0,0,0,.75);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh;
+    background: radial-gradient(1000px 380px at 50% -12%, var(--brand-soft), transparent 62%), var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 48px clamp(16px, 5vw, 32px) 56px; }
+  header { text-align: center; margin-bottom: 28px; }
+  h1 { margin: 0; font-size: 26px; font-weight: 650; letter-spacing: -0.01em; }
+  .sub { margin: 8px 0 0; font-size: 14px; color: var(--muted); }
+  .cards { display: grid; gap: 14px; }
+  .card {
+    display: flex; align-items: center; gap: 16px; padding: 18px 20px;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+    box-shadow: var(--shadow); color: inherit; text-decoration: none;
+    transition: transform .12s ease, border-color .12s ease;
+  }
+  .card:hover { border-color: var(--brand); transform: translateY(-2px); }
+  .card:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+  .glyph {
+    flex: none; width: 46px; height: 46px; display: grid; place-items: center;
+    border-radius: 12px; background: var(--brand-soft); color: var(--brand);
+  }
+  .glyph svg { width: 26px; height: 26px; }
+  .meta { min-width: 0; }
+  .meta h2 { margin: 0; font-size: 17px; font-weight: 600; }
+  .meta p { margin: 3px 0 0; font-size: 13px; color: var(--muted); line-height: 1.5; }
+  .arrow { margin-left: auto; color: var(--muted); font-size: 20px; }
+  footer { margin-top: 28px; text-align: center; font-size: 12px; color: var(--muted); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>函数图像小工具</h1>
+      <p class="sub">在线调整参数，查看函数图像与性质</p>
+    </header>
+    <nav class="cards" aria-label="函数类型">
+      <a class="card" href="linear-function.html">
+        <span class="glyph" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 4.5V19h15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.5 16.5L18.5 7.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="6.5" cy="16.5" r="1.6" fill="currentColor"/></svg>
+        </span>
+        <span class="meta">
+          <h2>一次函数</h2>
+          <p>y = kx + b —— 直线、斜率、截距与单调性</p>
+        </span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="card" href="quadratic-function.html">
+        <span class="glyph" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 19.5V4h15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.5 6.5Q12 23 17.5 6.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="12" cy="15.4" r="1.6" fill="currentColor"/></svg>
+        </span>
+        <span class="meta">
+          <h2>二次函数</h2>
+          <p>y = ax² + bx + c —— 抛物线、顶点、对称轴与判别式</p>
+        </span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+      <a class="card" href="reciprocal-function.html">
+        <span class="glyph" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 20h17M4 20V3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 19Q10 10 5 5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" fill="none"/></svg>
+        </span>
+        <span class="meta">
+          <h2>反比例函数</h2>
+          <p>y = k/x —— 双曲线、象限、渐近线与对称性</p>
+        </span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </nav>
+    <footer>一次函数 · 二次函数 · 反比例函数</footer>
+  </div>
+</body>
+</html>
